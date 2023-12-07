@@ -33,7 +33,7 @@ header .nav-link {
   }
 }
 .text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgb(237, 225, 225);
 }
 
 .custom-font-label {
