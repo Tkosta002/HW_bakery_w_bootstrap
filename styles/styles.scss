@@ -2,19 +2,84 @@
 
 body {
   background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
   margin: 0;
   padding: 0;
 }
 
+.d-flex {
+  position: relative;
+}
+
+#suggestion {
+  position: absolute; 
+  z-index: 1000; 
+  left: 0; 
+  right: 0; 
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none; 
+  max-height: 300px; 
+  overflow-y: auto; 
+  top: 100%;
+}
 
 
+#suggestion div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#suggestion div:hover {
+  background-color: #f0f0f0; 
+}
+
+
+.content-section {
+  font-family: 'Open Sans', sans-serif; 
+  color: #333; 
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section-heading {
+  font-size: 24px;
+  color: #6B4F4F; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #965A48;
+}
+
+.bakery-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+.call-to-action {
+  font-size: 20px;
+  font-weight: bold;
+  color: #965A48;
+}
 
 header .nav {
   position: relative;
   align-items: center;
   justify-content: center;
   margin: 0 10px;
+  font-size: 20px;
 }
 
 header .nav-link {
@@ -23,26 +88,103 @@ header .nav-link {
   text-transform: uppercase;
   margin-top: 20px;
 }
+
 .title {
   justify-content: center;
+  font-weight: normal;
   align-items: center;
-  font-size: calc(1.525rem + 3.3vw);
+  font-size: 60px;
   position: relative;
+  text-align: justify;
   
-}
-
-@media (min-width: 1200px) {
-  .title {
-    font-size: 4rem;
   }
-}
+
 .text-shadow {
   text-shadow: 2px 2px 4px rgb(237, 225, 225);
 }
 
+.module {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+}
+
+/* Modal Content */
+.module-content {
+  
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  text-align: center;
+  z-index: 10000;
+}
+
+#result ol{
+  display:inline-block;
+  margin-right: 10px;
+}
+
+.right-click-menu {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  list-style: none;
+  background: #f5f5f5; 
+  border: 1px solid #ccb9a8; 
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+  display: none;
+  font-family: 'Open Sans', sans-serif; 
+  color: #6B4F4F; 
+  width: 200px; 
+  z-index: 10000;
+}
+
+.right-click-menu.active {
+  display: block;
+}
+
+.right-click-menu li {
+  padding: 12px 20px; 
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s; 
+}
+
+.right-click-menu li:hover {
+  background: #e2d3c0; 
+  color: #5a3e36;
+}
+
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .custom-font-label {
-  font-family: "Arial", sans-serif; 
+  font-family: "Arial", sans-serif;
 }
 
 .bg-image {
@@ -52,22 +194,14 @@ header .nav-link {
   background-repeat: no-repeat;
   height: 50vh;
   background-color: white;
-  background-position: center 94%; 
+  background-position: center 94%;
 }
-
-@media (max-width: 768px) {
-  header {
-    height: 400px; 
-    background-position: center top;
-  }
-}
-
 
 header .nav {
   position: relative;
   align-items: center;
   justify-content: center;
-  }
+}
 
 header .nav-link {
   color: white;
@@ -81,9 +215,61 @@ header .nav-link {
   max-width: 100px;
   height: auto;
 }
+
 .logo {
-  position:relative;
+  position: relative;
   padding: 5px;
   align-items: center;
   justify-content: center;
 }
+
+.form-control {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-fixed-width {
+  width: 50%;
+}
+
+#helpMessageContainer p {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  background-color: #e6f2ff;
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #b3d1ff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+  header {
+    height: 400px;
+    background-position: center top;
+  }
+
+  header .nav {
+    font-size: 10px;
+  }
+
+  .logo img {
+    max-width: 50px;
+  }
+
+  .form-control {
+    width: 95%;
+  }
+
+  .btn-fixed-width {
+    width: 70%;
+    font-size: 10px;
+  }
+  .form-label, .form-select, .form-check-label{
+    font-size: 12px;
+  }
+}
+
